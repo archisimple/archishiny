@@ -7,7 +7,7 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  titlePanel(h1("- ArchiSimple -")),
+  titlePanel("- ArchiSimple -"),
   
   # Sidebar with a Simulations outputs
   sidebarLayout(
@@ -37,11 +37,17 @@ shinyUI(fluidPage(
                   value= params$dmax, 
                   step= params$dmax / 10),
       
+      sliderInput("P_intensity_tropism", "Tropism intensity", 
+                  min=0, 
+                  max=0.1, 
+                  value= 0.01, 
+                  step= 0.01),
+      
       sliderInput("P_nbMaxPrim", "Number of primary:", 
-                  min=round(params$max_num_sem / 4), 
-                  max=round(params$max_num_sem * 4), 
+                  min=1, 
+                  max=20, 
                   value= params$max_num_sem, 
-                  step= params$max_num_sem / 10),
+                  step= 1),
 
       sliderInput("P_distRamif", "Interbranch distance:", 
                   min=params$inter_prim_distance / 4, 
@@ -77,7 +83,7 @@ shinyUI(fluidPage(
     mainPanel(
       tabsetPanel(     
         tabPanel("Root system",
-                 plotOutput("plotroot", width = "400px"),
+                 plotOutput("plotroot", width = "100%", height = "1000px"),
                 value=1
         ),
         id="tabs1"

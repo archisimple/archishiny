@@ -18,6 +18,7 @@ shinyServer(
         params$growth_duration_coef       <- input$P_maxLatAge
         params$sim_length                 <- input$time_in_sim
         params$radial_growth_coef         <- input$P_coeffCroissRad
+        params$intensity_tropism          <- input$P_intensity_tropism
         
         # Setup the name of the file, containing the principal info about the simulation
         setwd("www")

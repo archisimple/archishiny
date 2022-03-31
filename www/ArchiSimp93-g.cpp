@@ -1227,7 +1227,7 @@ pTSysRac sR;
   sR->origine[1]=origine[1];
   sR->origine[2]=origine[2];
 
-  sR->angDep=2.0*pi*dRandUnif();  /* Orientation */
+  sR->angDep=0;//2.0*pi*dRandUnif();  /* Orientation */
 
   for (int i=0; i<NBPASMAX; i++) sR->tSatis[i]=1.0;
 
@@ -1290,7 +1290,7 @@ void emissionSemSR(pTSysRac sR)
   {
 //    printf("Je suis dans emissionSemSR %3i \n",sR->nbPrim);
     /* Calcul de la direction initiale de l'axe */
-    if (sR->nbSem==0) angI=tireGaussien(0.0,0.06); // ?mission de la radicule proche verticale (gravitropisme initial fort)
+    if (sR->nbSem==0) angI=tireGaussien(1.5, 0.06);//0.0,0.06); // ?mission de la radicule proche verticale (gravitropisme initial fort)
       else angI=tireGaussien(P_angInitMoyVertSem,P_angInitETVertSem); // angle par rapport à la verticale
     vInit[0]=sin(angI);
     vInit[1]=0.0;
